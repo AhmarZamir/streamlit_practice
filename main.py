@@ -38,7 +38,8 @@ for  section in match_sections:
 
     status = section.find("div",class_="cb-mtch-crd-state cb-ovr-flo cb-font-12 cb-text-complete")
     status2 = section.find("div",class_="cb-mtch-crd-state cb-ovr-flo cb-font-12 cb-text-apple-red")
-
+    status3 = section.find("div",class_="cb-ovr-flo cb-mtch-crd-time cb-font-12 cb-text-preview ng-binding ng-scope")
+   
    
 
     st.subheader(title.text.strip())
@@ -54,19 +55,27 @@ for  section in match_sections:
             else : st.write("NA")
        
        if i<len(score2):
-            if(score2):
+            if score2:
                format = re.sub(r'(\D+)(\d)', r'\1    \2', score2[i].text.strip())
                st.write(format)
             else : st.write("NA")
-           
-            if (status):
-               st.write(status.text.strip())
-
-            if(status2):
-                st.write(status2.text.strip())  
+      
 
 
-                #this is me ahmar
-                #  zamir
-                # another commit 
+    if status:
+        st.write(f"Status: {status.text.strip()}")
+    elif status2:
+        st.write(f"Status: {status2.text.strip()}")
+    elif status3:
+        st.write(f"Status: {status3.text.strip()}")
+    else:
+        st.write("Status: Upcoming Mathes")
 
+            
+                
+
+    
+              
+
+
+                
