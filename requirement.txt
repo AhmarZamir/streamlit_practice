@@ -1,5 +1,5 @@
 streamlit 
-BeautifulSoup4
+beautifulsoup
 requests
 re
 
