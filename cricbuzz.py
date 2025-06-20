@@ -39,3 +39,7 @@ for  section in match_sections:
        team_name = teams[i-1].text.strip()
        team_score = scores[i-1].text.strip()
        st.write(f"{team_name}   vs   {team_score}")
+
+
+
+    #  completed  
