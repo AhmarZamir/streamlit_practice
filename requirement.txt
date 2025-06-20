@@ -1,5 +1,4 @@
-streamlit 
-BeautifulSoup
-requests
-re
-
+streamlit
+beautifulsoup4
+lxml
+requires

@@ -9,12 +9,8 @@ data = requests.get("https://www.cricbuzz.com/")
 soup = BeautifulSoup(data.text, 'html.parser')
 
 
-# match_title =soup.find_all('div', class_="cb-col-90 cb-color-light-sec cb-ovr-flo")
-# score_card = soup.find_all('li', class_="cb-view-all-ga cb-match-card cb-bg-white")
-
-
 st.title("CricBuzz")
-st.header("live Cricket Score")
+st.header("Live Cricket Score")
 
 
 match_sections = soup.find_all('li',class_="cb-view-all-ga cb-match-card cb-bg-white")
@@ -31,11 +27,7 @@ for  section in match_sections:
     score1 = section.find_all("div",class_="cb-hmscg-tm-bat-scr cb-font-14")
     score2 = section.find_all("div","cb-hmscg-tm-bwl-scr cb-font-14")
     
-    
-    # status = score1.find_next_sibling("div")
-
-    # st.subheader(status.text.strip())
-
+   
     status = section.find("div",class_="cb-mtch-crd-state cb-ovr-flo cb-font-12 cb-text-complete")
     status2 = section.find("div",class_="cb-mtch-crd-state cb-ovr-flo cb-font-12 cb-text-apple-red")
     status3 = section.find("div",class_="cb-ovr-flo cb-mtch-crd-time cb-font-12 cb-text-preview ng-binding ng-scope")
@@ -71,11 +63,3 @@ for  section in match_sections:
     else:
         st.write("Status: Upcoming Mathes")
 
-            
-                
-
-    
-              
-
-
-                
