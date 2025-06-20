@@ -9,7 +9,11 @@ headers = {
 }
 
 try:
-    data = requests.get("https://www.cricbuzz.com/", headers=headers)
+    data = requests.get("http://api.scraperapi.com", params={
+    'api_key': st.secrets["SCRAPER_API_KEY"],
+    'url': 'https://www.cricbuzz.com/'
+})
+
     data.raise_for_status()  # Check for request errors
     soup = BeautifulSoup(data.text, 'html.parser')
 except Exception as e:
