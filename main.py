@@ -10,10 +10,9 @@ headers = {
 
 try:
     data = requests.get("http://api.scraperapi.com", params={
-    'api_key': 'addd4afda43f6d9013c206f01ce340b9',  # <- your real key
+    'api_key': st.secrets["SCRAPER_API_KEY"],
     'url': 'https://www.cricbuzz.com/'
 })
-
 
     data.raise_for_status()  # Check for request errors
     soup = BeautifulSoup(data.text, 'html.parser')
