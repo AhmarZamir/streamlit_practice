@@ -55,12 +55,6 @@ if mode=="Light Mode":
 #     </style>
 # """, unsafe_allow_html=True)
 
-
-
-
-
-
-
     font_color="black"
     status_color="red"
 
@@ -163,7 +157,7 @@ for section in match_sections:
         # st.subheader(title.text.strip()+"     ( "+match_format+" )"  if title else "Match")
         if(title):
             st.markdown(
-    f'<h2 style=" color:{font_color}; font-family:sans-serif; font-size:18px;">Status: {title.text.strip()}    ({match_format})</h2>',
+    f'<h2 style=" color:{font_color}; font-family:sans-serif; font-size:18px;"> {title.text.strip()}    ({match_format})</h2>',
     unsafe_allow_html=True
 )
                  
@@ -176,7 +170,7 @@ for section in match_sections:
                if(score1):
                   format = re.sub(r'(\D+)(\d)', r'\1    \2', score1[i].text.strip())
                   st.markdown(
-    f'<h1 style=" color:{font_color}; font-family:sans-serif; font-size:18px;">Status: {format}</h1>',
+    f'<h1 style=" color:{font_color}; font-family:sans-serif; font-size:18px;">{format}</h1>',
     unsafe_allow_html=True
 )
                  
@@ -188,7 +182,7 @@ for section in match_sections:
                if score2:
                  format = re.sub(r'(\D+)(\d)', r'\1    \2', score2[i].text.strip())
                  st.markdown(
-    f'<h1 style=" color:{font_color}; font-family:sans-serif; font-size:18px;">Status: {format}</h1>',
+    f'<h1 style=" color:{font_color}; font-family:sans-serif; font-size:18px;"> {format}</h1>',
     unsafe_allow_html=True
 )
                  
