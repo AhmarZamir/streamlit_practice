@@ -40,20 +40,20 @@ if mode=="Light Mode":
     """, unsafe_allow_html=True)
 
 
-    st.markdown("""
-    <style>
-   /* Change background and border on hover */
-[data-testid="stSelectbox"] {
-    background-color: #f5f5f5;
-    border-radius: 8px;
-    border: 2px solid yellow;
+#     st.markdown("""
+#     <style>
+#    /* Change background and border on hover */
+# [data-testid="stSelectbox"] {
+#     background-color: #f5f5f5;
+#     border-radius: 8px;
+#     border: 2px solid yellow;
                 
-}
+# }
 
 
 
-    </style>
-""", unsafe_allow_html=True)
+#     </style>
+# """, unsafe_allow_html=True)
 
 
 
