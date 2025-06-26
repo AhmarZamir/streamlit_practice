@@ -6,7 +6,7 @@ import re
 # Sidebar
 with st.sidebar:
     st.markdown(
-    '<h1 style="text-align:center; color:#1f77b4; font-family:sans-serif; height:100px; width:200px; font-size:40px;">CricBuzz</h1>',
+    '<h1 style="text-align:center; color:#016080; font-family:sans-serif; height:70px; width:200px; font-size:40px;">CricBuzz</h1>',
     unsafe_allow_html=True
 )
     st.divider()
@@ -14,12 +14,71 @@ with st.sidebar:
     st.divider()
     select_format = st.selectbox("Filter by Format",["All","Test","ODI","T20"])
     st.divider()
+    mode = st.selectbox("Theme",["Dark Mode","Light Mode"])  
+
+
+if mode=="Light Mode":
+    st.markdown("""
+    <style>
+        /* Whole Page Background */
+        [data-testid="stAppViewContainer"] {
+            background-color: #c1c6c7;
+        }
+               
+      </style>
+    """, unsafe_allow_html=True)
+    
+
+    st.markdown("""
+    <style>
+        
+        [data-testid="stSidebar"] {
+            background-color: #797c7d;
+            border-right: 2px solid #bbb;
+        }
+      </style>
+    """, unsafe_allow_html=True)
+
+
+    st.markdown("""
+    <style>
+   /* Change background and border on hover */
+[data-testid="stSelectbox"] {
+    background-color: #f5f5f5;
+    border-radius: 8px;
+    border: 2px solid yellow;
+                
+}
+
+
+
+    </style>
+""", unsafe_allow_html=True)
+
+
+
+
+
+
+
+    font_color="black"
+    status_color="red"
+
+
+else :
+    font_color ="white" 
+    status_color="pink"
+
+
+
+                        
+                     
 
 # Header
 
 
 st.markdown(
-    '<h1 style="text-align:center; color:#1f77b4; font-family:sans-serif;">Live Cricket Score</h1>',
+    '<h1 style="text-align:center; color:#016080; font-family:sans-serif;">Live Cricket Score</h1>',
     unsafe_allow_html=True
 )
 
@@ -101,7 +160,14 @@ for section in match_sections:
     )
 
     if format_match and status_match:
-        st.subheader(title.text.strip()+"     ( "+match_format+" )"  if title else "Match")
+        # st.subheader(title.text.strip()+"     ( "+match_format+" )"  if title else "Match")
+        if(title):
+            st.markdown(
+    f'<h2 style=" color:{font_color}; font-family:sans-serif; font-size:18px;">Status: {title.text.strip()}    ({match_format})</h2>',
+    unsafe_allow_html=True
+)
+                 
+               
 
     
 
@@ -109,43 +175,53 @@ for section in match_sections:
            if i<len(score1):
                if(score1):
                   format = re.sub(r'(\D+)(\d)', r'\1    \2', score1[i].text.strip())
-                  st.write(format)
-               else: st.write("NA")
-       
+                  st.markdown(
+    f'<h1 style=" color:{font_color}; font-family:sans-serif; font-size:18px;">Status: {format}</h1>',
+    unsafe_allow_html=True
+)
+                 
+               else: st.markdown(
+    f'<h1 style=" color:{font_color}; font-family:sans-serif; font-size:18px;">NA</h1>',
+    unsafe_allow_html=True
+)
            if i<len(score2):
                if score2:
                  format = re.sub(r'(\D+)(\d)', r'\1    \2', score2[i].text.strip())
-                 st.write(format)
-               else: st.write("NA")
-
-        if status:
-          st.markdown(
-    f'<h1 style=" color:pink; font-family:sans-serif; font-size:18px;">Status: {status.text.strip()}</h1>',
+                 st.markdown(
+    f'<h1 style=" color:{font_color}; font-family:sans-serif; font-size:18px;">Status: {format}</h1>',
+    unsafe_allow_html=True
+)
+                 
+               else: st.markdown(
+    f'<h1 style=" color:{font_color}; font-family:sans-serif; font-size:18px;">NA</h1>',
     unsafe_allow_html=True
 )
 
-          
+        if status:
+          st.markdown(
+    f'<h1 style=" color:{status_color}; font-family:sans-serif; font-size:18px;">Status: {status.text.strip()}</h1>',
+    unsafe_allow_html=True
+)
+
+           
         elif status2:
            
            st.markdown(
-    f'<h1 style=" color:pink; font-family:sans-serif; font-size:18px;">Status: {status2.text.strip()}</h1>',
+    f'<h1 style=" color:{status_color}; font-family:sans-serif; font-size:18px;">Status: {status2.text.strip()}</h1>',
     unsafe_allow_html=True
 )
         elif status3:
            st.markdown(
-    f'<h1 style=" color:pink; font-family:sans-serif; font-size:18px;">Status: {status.text.strip()}</h1>',
+    f'<h1 style=" color:{status_color}; font-family:sans-serif; font-size:18px;">Status: {status.text.strip()}</h1>',
     unsafe_allow_html=True
 )
         else:
           st.markdown(
-    f'<h1 style=" color:pink; font-family:sans-serif; font-size:18px;">Status: Upcoming Matches</h1>',
+    f'<h1 style=" color:{status_color}; font-family:sans-serif; font-size:18px;">Status: Upcoming Matches</h1>',
     unsafe_allow_html=True
 )
     
 
         st.divider()    
-
-
-
-
-  
+        
+      
