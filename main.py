@@ -31,7 +31,7 @@ if st.session_state.theme_mode == "Light Mode":
     <style>
         /* Whole Page Background */
         [data-testid="stAppViewContainer"] {
-            background-color: #c1c6c7;
+            background-color: #E0E0E0;
         }
     </style>
     """, unsafe_allow_html=True)
@@ -39,16 +39,16 @@ if st.session_state.theme_mode == "Light Mode":
     st.markdown("""
     <style>
         [data-testid="stSidebar"] {
-            background-color: #797c7d;
+            background-color: #1F1F1F;
             border-right: 2px solid #bbb;
         }
     </style>
     """, unsafe_allow_html=True)
-    font_color = "black"
-    status_color = "red"
+    font_color = "#016080"
+    status_color = "#016080"
 else: 
-    font_color = "white"
-    status_color = "pink"
+    font_color = "#016080"
+    status_color = "#016080"
 
 # The rest of your code remains largely the same...
 
